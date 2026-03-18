@@ -39,7 +39,7 @@ export default function SREnterprises() {
     const onScroll = () => setScrolled(window.scrollY > 40);
     window.addEventListener("scroll", onScroll);
     return () => window.removeEventListener("scroll", onScroll);
-  }, []);
+  },  [activeNav]);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -55,7 +55,7 @@ export default function SREnterprises() {
     );
     Object.values(sectionRefs.current).forEach((el) => el && observer.observe(el));
     return () => observer.disconnect();
-  }, []);
+  },  [activeNav]);
 
   const registerRef = (id, nav) => (el) => {
     if (el) {
